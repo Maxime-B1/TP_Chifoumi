@@ -2,8 +2,8 @@ import random
 
 
 def choix_ordi():
-    list = ["p", "f", "c"]
-    return (random.choice(list))
+    liste = ["p", "f", "c"]
+    return (random.choice(liste))
 
 def choix_joueur():
     return input("Tape \"p\" pour pierre, \"f\" pour feuille ou \"c\" pour ciseau. ")
@@ -24,18 +24,24 @@ def verdict(choix_joueur, choix_ordi):
 
 
 def partie():
-    joueur=input("Tape \"p\" pour pierre, \"f\" pour feuille ou \"c\" pour ciseau. ")
+    joueur=choix_joueur()
     ordi=choix_ordi()
-    print (f"Choix ordi : {ordi}")
-    return verdict(joueur, ordi)
+    res = verdict(joueur, ordi)
+    if res != 2:
+        print (f"Choix ordi : {ordi}")
+    return res
+
 
 def jeu_pfc():
-    conteur = 0
-    while verdict(choix_joueur(),choix_ordi())!=2:
-        conteur=conteur+partie()
-        print (f"Nombre de points : {conteur}")
+    compteur = 0
+    res = 0
+    while res != 2:
+        res = partie()
+        compteur=compteur+res
+        if res !=2: 
+            print (f"Score total : {compteur}")
+    print (f"Score total : {compteur-2}")
     print ("Fin du jeu")
-    print (f"Score total : {conteur}")
 
 
 
