@@ -6,7 +6,7 @@ def choix_ordi():
     return (random.choice(liste))
 
 def choix_joueur():
-    return input("Tape \"p\" pour pierre, \"f\" pour feuille ou \"c\" pour ciseau. ")
+    return input("Tape \"p\" pour pierre, \"f\" pour feuille ou \"c\" pour ciseau. ").lower()
 
 
 def verdict(choix_joueur, choix_ordi):
